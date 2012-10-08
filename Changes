@@ -3,6 +3,9 @@ Revision history for Perl extension Net::Patricia.
 TODO
         - add POD describing Graham Barr's API improvements
 
+1.20  Mon Oct  8 22:46:13 CEST 2012
+	- Add Storable hooks
+
 1.019 Sun Nov 14 12:15 2010
 	- Improve parameter checking
 

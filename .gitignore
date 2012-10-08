@@ -13,3 +13,8 @@ META.yml
 MYMETA.yml
 nytprof.out
 pm_to_blib
+Patricia.bs
+Patricia.c
+Patricia.o
+libpatricia/libpatricia.a
+libpatricia/patricia.o

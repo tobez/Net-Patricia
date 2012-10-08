@@ -18,6 +18,7 @@
 
 # Dave Plonka <plonka@doit.wisc.edu>
 # Philip Prindeville <philipp@redfish-solutions.com>
+# Anton Berezin <tobez@tobez.org>
 
 package Net::Patricia;
 
@@ -38,7 +39,7 @@ BEGIN {
   @EXPORT = qw(AF_INET AF_INET6);
 }
 
-'$Revision: 1.19 $' =~ m/(\d+)\.(\d+)((_\d+)|)/ && ( $VERSION = "$1.$2$3");
+'$Revision: 1.20 $' =~ m/(\d+)\.(\d+)((_\d+)|)/ && ( $VERSION = "$1.$2$3");
 
 bootstrap Net::Patricia $VERSION;
 
@@ -531,6 +532,7 @@ subroutine return a non-zero value.
 
 Dave Plonka <plonka@doit.wisc.edu>
 Philip Prindeville <philipp@redfish-solutions.com>
+Anton Berezin <tobez@tobez.org>
 
 Copyright (C) 2000-2005  Dave Plonka.  Copyright (C) 2009  Dave Plonka
 & Philip Prindeville.  This program is free software; you
