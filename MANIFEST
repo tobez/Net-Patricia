@@ -1,0 +1,16 @@
+Changes
+COPYING
+demo/demo.c
+libpatricia/copyright
+libpatricia/credits.txt
+libpatricia/Makefile.PL
+libpatricia/patricia.c
+libpatricia/patricia.h
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+Patricia.pm
+Patricia.xs
+README
+t/01everything.t
+typemap
