@@ -517,9 +517,6 @@ This method is called climb() rather than walk() because climbing trees
 
 =head1 BUGS
 
-This modules does not yet support AF_INET6 (IP version 6) 128 bit
-addresses, although the underlying patricialib C code does.
-
 When passing a CODEREF argument to the climb method, the return value
 from your CODEREF subroutine is currently ignored.  In the future the
 climb method may return the number of times your subroutine returned
