@@ -3,6 +3,12 @@ Revision history for Perl extension Net::Patricia.
 TODO
         - add POD describing Graham Barr's API improvements
 
+1.21  Wed Sep  4 12:47:00 CEST 2013
+    - MRT https://github.com/deepfield/MRT has changed license to
+      one compatible with GPL, so libpatricia/ content is now
+      also GPL-compatible
+    - no code changes
+
 1.20  Mon Oct  8 22:46:13 CEST 2012
 	- Add Storable hooks
 
