@@ -1,7 +1,13 @@
 Revision history for Perl extension Net::Patricia.
 
 TODO
-        - add POD describing Graham Barr's API improvements
+    - add POD describing Graham Barr's API improvements
+
+1.21  Tue Oct 15 21:38:53 CEST 2013
+    - update FSF address (CPAN RT 88585)
+    - add IPv6 examples to the synopsis
+    - mention Storable support
+    - no code changes
 
 1.21  Wed Sep  4 12:47:00 CEST 2013
     - MRT https://github.com/deepfield/MRT has changed license to
