@@ -231,7 +231,9 @@ climb_inorder(tree, ...)
 		} else if (2 < items) {
 	           croak("Usage: Net::Patricia::climb_inorder(tree[,CODEREF])");
 		}
-                n = patricia_walk_inorder_perl(tree->head, func);
+		if (NULL != tree->head) {
+                   n = patricia_walk_inorder_perl(tree->head, func);
+		}
 		RETVAL = n;
 	OUTPUT:	
 		RETVAL
