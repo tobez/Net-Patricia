@@ -1,0 +1,35 @@
+---
+name: make test
+
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        perl: ["5.40", "5.20", "5.8"]
+        exclude:
+          - os: "windows-latest"
+            perl: "5.8"
+      fail-fast: false
+    env:
+      MODULES: ${{ matrix.perl == '5.8' && 'Socket6 Net::CIDR::Lite Test::More version' || 'Socket6 Net::CIDR::Lite' }}
+    name: Perl ${{ matrix.perl }} on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+          install-modules-with: cpanm
+          install-modules: ${{ env.MODULES }}
+      - run: perl Makefile.PL
+      - run: make
+      - run: make test
