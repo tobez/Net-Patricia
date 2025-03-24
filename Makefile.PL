@@ -5,7 +5,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'	=> 'Net::Patricia',
     'VERSION_FROM' => 'Patricia.pm', # finds $VERSION
-    'LIBS'	=> ['-lnsl'],   # e.g., '-lm' 
+    'LIBS'	=> [],     # e.g., '-lm' 
     'DEFINE'	=> '',     # e.g., '-DHAVE_SOMETHING' 
     'INC'	=> '',     # e.g., '-I/usr/include/other' 
     'MYEXTLIB'	=> 'libpatricia/libpatricia$(LIB_EXT)',     # e.g., '-I/usr/include/other' 
