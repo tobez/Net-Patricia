@@ -534,4 +534,4 @@ void
 DESTROY(tree)
 	Net::Patricia			tree
 	CODE:
-	Destroy_Patricia(tree, deref_data);
+	Destroy_Patricia(tree, (void_fn_t)deref_data);
