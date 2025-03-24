@@ -16,6 +16,14 @@ static char copyright[] =
 "This product includes software developed by the University of Michigan, Merit"
 "Network, Inc., and their contributors.";
 
+/* inet_ntop() and inet_pton() require at least Windows Vista. */
+#ifdef _WIN32
+# undef WINVER
+# undef _WIN32_WINNT
+# define WINVER 0x0600
+# define _WIN32_WINNT 0x0600
+#endif
+
 #include <assert.h> /* assert */
 #include <ctype.h> /* isdigit */
 #include <errno.h> /* errno */
@@ -26,7 +34,6 @@ static char copyright[] =
 #include <string.h> /* memcpy, strchr, strlen */
 #include <sys/types.h> /* BSD: for inet_addr */
 #include <sys/socket.h> /* BSD, Linux: for inet_addr */
-#include <netinet/in.h> /* BSD, Linux: for inet_addr */
 #include <arpa/inet.h> /* BSD, Linux, Solaris: for inet_addr */
 
 #include "patricia.h"

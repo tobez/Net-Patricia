@@ -8,9 +8,14 @@ extern "C" {
 }
 #endif
 
+/* memory for libpatricia must not be managed with redefined calloc() and
+ * free() routines from XSUB.h. Otherwise, DESTROY crashes on Perl releases
+ * such as Strawberry Perl that use their own memory management. */
+#undef calloc
+#undef free
+
 #include <sys/types.h>
 #include <stdint.h>
-#include <netinet/in.h>
 #include "libpatricia/patricia.h"
 
 /* frozen stuff is frozen in network byte order */
