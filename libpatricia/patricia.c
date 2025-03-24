@@ -378,7 +378,7 @@ Clear_Patricia (patricia_tree_t *patricia, void_fn_t func)
     	    if (Xrn->prefix) {
 		Deref_Prefix (Xrn->prefix);
 		if (Xrn->data && func)
-	    	    func (Xrn->data);
+	    	    ((void (*)(void *)) func) (Xrn->data);
     	    }
     	    else {
 		assert (Xrn->data == NULL);
@@ -425,7 +425,7 @@ patricia_process (patricia_tree_t *patricia, void_fn_t func)
     assert (func);
 
     PATRICIA_WALK (patricia->head, node) {
-	func (node->prefix, node->data);
+	((void (*)(prefix_t *, void *)) func) (node->prefix, node->data);
     } PATRICIA_WALK_END;
 }
 
@@ -440,7 +440,7 @@ patricia_walk_inorder(patricia_node_t *node, void_fn_t func)
     }
 
     if (node->prefix) {
-	func(node->prefix, node->data);
+	((void (*)(prefix_t *, void *)) func) (node->prefix, node->data);
 	n++;
     }
 	
