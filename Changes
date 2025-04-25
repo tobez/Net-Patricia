@@ -5,7 +5,7 @@ This module was originally called Tree::PatriciaTrie::IPv4
 TODO
     - add POD describing Graham Barr's API improvements
 
-1.21 2013-10-15 21:38:53 CEST
+1.22 2013-10-15 21:38:53 CEST
     - update FSF address (CPAN RT 88585)
     - add IPv6 examples to the synopsis
     - mention Storable support
