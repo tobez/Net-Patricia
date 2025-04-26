@@ -15,7 +15,6 @@ my %WriteMakefileArgs = (
     'MYEXTLIB'     => 'libpatricia/libpatricia$(LIB_EXT)',
     'PREREQ_PM'    => {
         'Carp'            => 0,
-        'DynaLoader'      => 0,
         'Exporter'        => 0,
         'Net::CIDR::Lite' => '0.20',
         'Socket'          => 0,
