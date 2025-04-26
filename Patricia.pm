@@ -551,7 +551,9 @@ subroutine return a non-zero value.
 =head1 AUTHOR
 
 Dave Plonka <plonka@doit.wisc.edu>
+
 Philip Prindeville <philipp@redfish-solutions.com>
+
 Anton Berezin <tobez@tobez.org>
 
 Copyright (C) 2000-2005  Dave Plonka.  Copyright (C) 2009  Dave Plonka
@@ -568,20 +570,20 @@ patricialib, the C library used by this perl extension, is an extracted
 version of MRT's patricia code from radix.[ch], which was worked on by
 Masaki Hirabaru and Craig Labovitz.  For more info on MRT see:
 
-   http://www.mrtd.net/
+   https://github.com/deepfield/MRT
 
 The MRT patricia code owes some heritage to GateD's radix code, which
 in turn owes something to the BSD kernel.
 
 =head1 SEE ALSO
 
-perl(1), Socket, Net::Netmask, Text::Trie, Tree::Trie.
+perl(1), L<Socket>, L<Net::Netmask>, L<Text::Trie>, L<Tree::Trie>.
 
 Tree::Radix and Net::RoutingTable are modules by Daniel Hagerty
 <hag@linnaean.org> written entirely in perl, unlike this module.  At
 the time of this writing, they are works-in-progress but may be
 available at:
 
-   http://www.linnaean.org/~hag/
+   https://www.linnaean.org/~hag/
 
 =cut
