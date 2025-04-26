@@ -323,8 +323,9 @@ Net::Patricia - Patricia Trie perl module for fast IP address lookups
 
   use Net::Patricia;
 
-  my $pt = new Net::Patricia;
+  my $pt = Net::Patricia->new;
 
+  my $user_data;
   $pt->add_string('127.0.0.0/8', \$user_data);
   $pt->match_string('127.0.0.1');
   $pt->match_exact_string('127.0.0.0');
@@ -336,7 +337,7 @@ Net::Patricia - Patricia Trie perl module for fast IP address lookups
   undef $pt; # automatically destroys the Patricia Trie
 
   # IPv6 support:
-  $pt = new Net::Patricia AF_INET6;
+  $pt = Net::Patricia->new(AF_INET6);
   $pt->add_string('2001:db8::/32');
   $pt->add_string('2001:db8:0:dead::/64');
   $pt->add_string('2001:db8:0:beef::/64');
@@ -377,7 +378,7 @@ Routing Table for Berkeley Unix'' by Keith Sklower.
 
 =item B<new> - create a new Net::Patricia object
 
-   $pt = new Net::Patricia;
+   $pt = Net::Patricia->new;
 
 This is the class' constructor - it returns a C<Net::Patricia> object
 upon success or undef on failure.  The constructor takes an
