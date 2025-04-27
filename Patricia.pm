@@ -20,6 +20,7 @@
 # Dave Plonka <plonka@doit.wisc.edu>
 # Philip Prindeville <philipp@redfish-solutions.com>
 # Anton Berezin <tobez@tobez.org>
+# Andreas Vögele <andreas@andreasvoegele.com>
 
 package Net::Patricia;
 
@@ -556,6 +557,8 @@ Dave Plonka <plonka@doit.wisc.edu>
 Philip Prindeville <philipp@redfish-solutions.com>
 
 Anton Berezin <tobez@tobez.org>
+
+Andreas Vögele <andreas@andreasvoegele.com>
 
 Copyright (C) 2000-2005  Dave Plonka.  Copyright (C) 2009  Dave Plonka
 & Philip Prindeville.  This program is free software; you
