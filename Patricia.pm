@@ -1,3 +1,6 @@
+package Net::Patricia;
+use utf8;
+
 #  Net::Patricia - Patricia Trie perl module for fast IP address lookups
 #  Copyright (C) 2000-2005  Dave Plonka
 #  Copyright (C) 2009       Dave Plonka & Philip Prindeville
@@ -21,8 +24,6 @@
 # Philip Prindeville <philipp@redfish-solutions.com>
 # Anton Berezin <tobez@tobez.org>
 # Andreas Vögele <andreas@andreasvoegele.com>
-
-package Net::Patricia;
 
 use strict;
 use warnings;
@@ -315,6 +316,8 @@ sub remove_integer {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
