@@ -19,3 +19,4 @@ Patricia.c
 Patricia.o
 libpatricia/libpatricia.a
 libpatricia/patricia.o
+Net-Patricia-*.tar.gz
