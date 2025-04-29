@@ -553,6 +553,22 @@ relying on the climb return value to accurately report a count of the
 number of nodes in the Patricia Trie, it would be prudent to have your
 subroutine return a non-zero value.
 
+=head1 ACKNOWLEDGEMENTS
+
+Thanks to all who have contributed patches and reported bugs:
+
+Alexander Bluhm
+
+Neil Bowers
+
+Richard Bross
+
+Joelle Maslak
+
+Petr Písař
+
+Andreas Vögele
+
 =head1 AUTHOR
 
 Dave Plonka <plonka@doit.wisc.edu>
@@ -560,8 +576,6 @@ Dave Plonka <plonka@doit.wisc.edu>
 Philip Prindeville <philipp@redfish-solutions.com>
 
 Anton Berezin <tobez@tobez.org>
-
-Andreas Vögele <andreas@andreasvoegele.com>
 
 Copyright (C) 2000-2005  Dave Plonka.  Copyright (C) 2009  Dave Plonka
 & Philip Prindeville.  This program is free software; you
