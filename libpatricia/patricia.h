@@ -95,10 +95,12 @@ void patricia_process (patricia_tree_t *patricia, void_fn_t func);
 
 char *prefix_toa (prefix_t * prefix);
 
+void Deref_Prefix (prefix_t * prefix);
+
 /* { from demo.c */
 
 prefix_t *
-ascii2prefix (int family, char *string);
+ascii2prefix (int family, const char *string);
 
 patricia_node_t *
 make_and_lookup (patricia_tree_t *tree, char *string);

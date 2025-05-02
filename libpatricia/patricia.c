@@ -242,7 +242,7 @@ New_Prefix (int family, void *dest, int bitlen)
 /* ascii2prefix
  */
 prefix_t *
-ascii2prefix (int family, char *string)
+ascii2prefix (int family, const char *string)
 {
     u_long bitlen, maxbitlen = 0;
     char *cp;
