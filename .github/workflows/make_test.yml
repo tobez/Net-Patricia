@@ -21,15 +21,23 @@ jobs:
             perl: "5.8"
       fail-fast: false
     env:
-      MODULES: ${{ matrix.perl == '5.8' && 'Socket6 Net::CIDR::Lite Test::More version' || 'Socket6 Net::CIDR::Lite' }}
+      MAKECMD: ${{ (matrix.os == 'windows-latest' && matrix.perl == '5.20' && 'dmake') || (matrix.os == 'windows-latest' && 'gmake') || 'make' }}
     name: Perl ${{ matrix.perl }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
-          install-modules-with: cpanm
-          install-modules: ${{ env.MODULES }}
+          distribution: ${{ matrix.os == 'windows-latest' && 'strawberry' || 'default' }}
+      - run: |
+          touch cpanfile
+          echo 'requires "Net::CIDR::Lite" => "0";' >> cpanfile
+          echo 'requires "Socket" => "0";' >> cpanfile
+          echo 'requires "Socket6" => "0";' >> cpanfile
+          echo 'requires "Test::More" => "0.88";' >> cpanfile
+          echo 'requires "Test::Pod" => "1.00";' >> cpanfile
+          echo 'requires "version" => "0";' >> cpanfile
+      - run: cpanm --insecure --installdeps .
       - run: perl Makefile.PL
-      - run: make
-      - run: make test
+      - run: ${{ env.MAKECMD }}
+      - run: ${{ env.MAKECMD }} test TEST_VERBOSE=1
