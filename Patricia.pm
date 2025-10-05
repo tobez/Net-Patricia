@@ -577,6 +577,8 @@ Philip Prindeville <philipp@redfish-solutions.com>
 
 Anton Berezin <tobez@tobez.org>
 
+=head1 LICENSE AND COPYRIGHT
+
 Copyright (C) 2000-2005  Dave Plonka.  Copyright (C) 2009  Dave Plonka
 & Philip Prindeville.  This program is free software; you
 can redistribute it and/or modify it under the terms of the GNU General
