@@ -15,29 +15,44 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        perl: ["5.40", "5.20", "5.8"]
-        exclude:
-          - os: "windows-latest"
+        perl: ["5.44"]
+        distribution: ["default"]
+        include:
+          - os: "ubuntu-latest"
             perl: "5.8"
+            distribution: "default"
+          - os: "windows-latest"
+            perl: "5.24"
+            distribution: "default"
+          - os: "windows-latest"
+            perl: "5.42"
+            distribution: "strawberry"
       fail-fast: false
     env:
-      MAKECMD: ${{ (matrix.os == 'windows-latest' && matrix.perl == '5.20' && 'dmake') || (matrix.os == 'windows-latest' && 'gmake') || 'make' }}
-    name: Perl ${{ matrix.perl }} on ${{ matrix.os }}
+      MAKECMD: ${{ (matrix.os == 'windows-latest' && 'gmake') || 'make' }}
+    name: ${{ (matrix.distribution == 'strawberry' && 'Strawberry Perl') || 'Perl' }} ${{ matrix.perl }} on ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
-          distribution: ${{ matrix.os == 'windows-latest' && 'strawberry' || 'default' }}
-      - run: |
+          distribution: ${{ matrix.distribution }}
+          enable-modules-cache: false
+      - name: perl -V
+        run: perl -V
+      - name: Install dependencies
+        run: |
           touch cpanfile
           echo 'requires "Net::CIDR::Lite" => "0";' >> cpanfile
-          echo 'requires "Socket" => "0";' >> cpanfile
-          echo 'requires "Socket6" => "0";' >> cpanfile
+          echo 'requires "Socket" => "1.87";' >> cpanfile
           echo 'requires "Test::More" => "0.88";' >> cpanfile
           echo 'requires "Test::Pod" => "1.00";' >> cpanfile
           echo 'requires "version" => "0";' >> cpanfile
-      - run: cpanm --insecure --installdeps .
-      - run: perl Makefile.PL
-      - run: ${{ env.MAKECMD }}
-      - run: ${{ env.MAKECMD }} test TEST_VERBOSE=1
+          cpanm --insecure --installdeps .
+      - name: Build module
+        run: |
+          perl Makefile.PL
+          ${{ env.MAKECMD }}
+      - name: Run tests
+        run: |
+          ${{ env.MAKECMD }} test TEST_VERBOSE=1

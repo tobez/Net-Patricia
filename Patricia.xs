@@ -14,6 +14,13 @@ extern "C" {
 #undef calloc
 #undef free
 
+#ifdef PERL_IMPLICIT_SYS
+#undef htonl
+#undef htons
+#undef ntohl
+#undef ntohs
+#endif
+
 #include <sys/types.h>
 #include <stdint.h>
 #include "libpatricia/patricia.h"
