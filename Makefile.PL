@@ -4,6 +4,10 @@ use warnings;
 use 5.008;
 use ExtUtils::MakeMaker;
 
+# Socket 2.019, which provides inet_pton and inet_ntop on Windows, is
+# shipped with Perl 5.24.
+die "OS unsupported\n" if $^O eq 'MSWin32' && "$]" < 5.024;
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 my %WriteMakefileArgs = (
@@ -17,8 +21,7 @@ my %WriteMakefileArgs = (
         'Carp'            => 0,
         'Exporter'        => 0,
         'Net::CIDR::Lite' => '0.20',
-        'Socket'          => 0,
-        'Socket6'         => 0,
+        'Socket'          => '1.87',
         'version'         => 0,
     },
     'TEST_REQUIRES' => {

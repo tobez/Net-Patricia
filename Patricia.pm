@@ -234,8 +234,7 @@ sub remove_integer {
 package Net::Patricia::AF_INET6;
 
 use Carp;
-use Socket qw(AF_INET6);
-use Socket6 qw(inet_pton inet_ntop);
+use Socket qw(AF_INET6 inet_pton inet_ntop);
 use vars qw(@ISA @EXPORT);
 
 BEGIN {
